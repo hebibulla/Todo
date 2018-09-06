@@ -1,0 +1,83 @@
+body{
+    
+    background-color: lightgray;}
+
+    body,
+input{    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Kosugi Maru', sans-serif;}
+}
+.list_label{
+    background-color:;
+    display: inline-block;
+    max-width: 100%;
+
+}
+
+a{
+    text-decoration:none;
+    border-bottom: 1px dashed #363639;
+}
+/* List */
+
+.list_label{background-color: white;
+margin: 20px auto;
+width: 100%;
+max-width: 500px;
+padding: 20px;
+box-sizing: border-box;
+border-radius: 5px;
+/* box-shadow: 1px 1px 0  rgb(63, 63, 65); */
+}
+.list_label .header{font-family: "Shadow Into Light Two", cursive;
+margin: 0 0 10px 0;
+}
+
+/* Items */
+
+    .items{
+        margin: 0%;
+        padding: 0%;
+        list-style-type: none;
+    }
+
+    .items li:hover .done_btn{
+        opacity: 1;
+        text-decoration:none;
+    }
+.item_Done{
+        text-decoration: line-through;
+    }
+    .items li ,.input{
+        border: 0;
+        border-bottom: 1px dashed #ccc;
+        padding: 15px 0;
+    }
+    .input{
+        width: 100%;
+    }
+    .input:focus{
+        outline:none;
+    }
+/* Done Botton */
+.items .done_btn{
+ display: inline-block;
+ font-size: 0.8em;
+ background-color: #d9dfe1;
+ color: #363639;
+ padding:3px 6px;
+ border:0;
+ opacity: 0.5;
+}
+
+/* Submit Button*/
+
+.add_btn{
+    background-color:white;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    width: 100%; 
+    margin-top: 5px;
+    box-shadow: 3px 3px 0  #ddd;
+}
+
+
