@@ -12,7 +12,7 @@ class AboutController extends Controller
     //display the about page.
     
     public function index(){
-        $sidebar = Sidebar::all();
+        // $sidebar = Sidebar::all();
         return view('ToDo',compact(["sidebar"]));
     }
 }
