@@ -1,43 +1,6 @@
-<?php
-session_start();
+@extends('app')
+@section('content')
 
-$password="";
-$_SESSION['user_id']=1;
-
-try {
-    $db =new PDO('mysql:dbname=todo;host=localhost',root,$password);
-
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully"; 
-}
-catch(PDOException $e){
-
-    echo "Connection failed: " . $e->getMessage();
-}
-
-    $itemsQuery = $db->prepare("
-    SELECT id, name ,done
-    FROM items
-    WHERE user = :user
-
-    ");
-
-    $itemsQuery->execute([
-        'user' => $_SESSION['user_id']
-    ]);
-
-    $items = $itemsQuery->rowCount() ? $itemsQuery :[];
-    echo'<pre>' , print_r($items,ture),'</pre>';
-?>
-
-
-
-
-<!DOCTYPE html>
-<html>
-@include('include.header1')
-<body>
-  
 <div class="list_label">
 <h1 class="header">To Do</h1>
  <ul class="items">
@@ -56,5 +19,4 @@ catch(PDOException $e){
 
 
 </div>
-</body>
-</html>
+@endsection
