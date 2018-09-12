@@ -10,11 +10,12 @@
     <li><span class="item_Done">勉強</span></li>
  
  </ul>
- <form action="add.php" class="item_add" method="post">
+ {!! Form::open(array('autocomplete'=>'off','class'=>'todo_form')) !!}
+ <!-- <form action="add.php" class="item_add" method="post" class=""> -->
    <input type="text" name="name" placeholder="新しいリスト追加記述してください！" class="input" autocomplet="off" require>
    <input type="submit" value="add" class="add_btn">  
-</form>
-
+<!-- </form> -->
+{!! Form::close() !!}
 
 
 

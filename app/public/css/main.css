@@ -1,17 +1,13 @@
 body{
     
-    background-color: lightgray;}
+    background-color: lightgray;
+    }
 
     body,
-input{    font-family: 'Source Sans Pro', sans-serif;
+input{font-family: 'Source Sans Pro', sans-serif;
     font-family: 'Kosugi Maru', sans-serif;}
-}
-.list_label{
-    background-color:;
-    display: inline-block;
-    max-width: 100%;
 
-}
+
 
 a{
     text-decoration:none;
@@ -20,6 +16,7 @@ a{
 /* List */
 
 .list_label{background-color: white;
+    
 margin: 20px auto;
 width: 100%;
 max-width: 500px;
@@ -28,6 +25,10 @@ box-sizing: border-box;
 border-radius: 5px;
 /* box-shadow: 1px 1px 0  rgb(63, 63, 65); */
 }
+
+
+
+
 .list_label .header{font-family: "Shadow Into Light Two", cursive;
 margin: 0 0 10px 0;
 }
@@ -44,7 +45,7 @@ margin: 0 0 10px 0;
         opacity: 1;
         text-decoration:none;
     }
-.item_Done{
+ .item_Done{
         text-decoration: line-through;
     }
     .items li ,.input{
@@ -81,3 +82,29 @@ margin: 0 0 10px 0;
 }
 
 
+/* LOGIN Label*/
+
+
+.login_form{background-color: white;
+    margin: 30px auto;
+    width: 100%;
+    max-width:500px;
+    max-height: 400px;
+    height: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    border-radius: 5px;}
+
+    .login_form input{
+        font-size: 18px;
+    }
+
+
+    .login_btn{
+        background-color:white;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        width: 100%; 
+        margin-top: 5px;
+        box-shadow: 3px 3px 0  #ddd;
+    }
