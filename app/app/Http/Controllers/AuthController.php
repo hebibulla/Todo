@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Validator;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use illuminate\html;
 // use Illuminate\Support\Facades\Validator;
@@ -20,6 +22,11 @@ class AuthController extends Controller
         return View('login');
     }
 
+
+
+
+
+                     //Post の処理
     public function postLogin(Request $request){
         
         $rules = array('username'=> 'required','password'=> 'required');
@@ -33,25 +40,50 @@ class AuthController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         
-
-            // $auth = Auth::attempt(array(
-            //     'name' => Input::get('username'),
-            //     'password' => Input::get('password')
-            // ),false);
-
-            // if(!$auth){
-            //     return Redirect('login')->withErrors(array( 
-            //         'invalid credentials were provided'
-            //  }   ));
-
-                // return redirect('ToDo');
-            
         }
+        $name = Input::get('username');
+        $password = Input::get('password');
+        print_r($name);
+        print_r($password);
+        $p = User::where('name',$name)->where("password",$password)->get();
+        print_r($p->toArray());
+            
+        
     }
 }
 
-// if ($validator->fails()) {
-//     return redirect('post/create')
-//                 ->withErrors($validator)
-//                 ->withInput();
-// }
+// if (Auth::attempt([ )) {
+//     // 認証に成功した
+//     return redirect()->intended('dashboard')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // $auth = Auth::attempt([
+            //     'name' => Input::get('username'),
+            //     'password' => Input::get('password')
+            // ]);
+
+            // if(Auth::attempt(array([
+            //     'name' => Input::get('username'),
+            //     'password' => Input::get('password')
+            // ]))){
+            //     return redirect()->intended('ToDo');
+                
+
+            //  }else{
+            //     return redirect('login')
+            //     ->withErrors(array('invalid credentials were provided'))
+            //     ->withInput();
+            //  }
