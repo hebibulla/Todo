@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class admin extends Authenticatable
 {
     use Notifiable;
-    protected $guard = 'user';
+    // protected $guard = 'todo';
     /**
      * The attributes that are mass assignable.
      *
@@ -26,9 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-
-    // public function items(){
-    //     return $this->hasMany('item','owner_id');
-    // }
 }

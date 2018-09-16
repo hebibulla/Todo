@@ -45,6 +45,14 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        // 'admin' => [
+        //     'driver' => 'session',
+        //     'provider' => 'todo',
+        // ],
+        // 'admin-api' => [
+        //     'driver' => 'token',
+        //     'provider' => 'todo',
+        // ],
     ],
 
     /*
@@ -70,9 +78,13 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
+        'users' => [
+            'driver' => 'database',
+            'table' => 'users',
+        ],
+        // 'todo' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\admin::class,
         // ],
     ],
 

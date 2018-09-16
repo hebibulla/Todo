@@ -141,6 +141,7 @@ return [
          * Laravel Framework Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -192,6 +193,8 @@ return [
     */
 
     'aliases' => [
+        'Html' => Illuminate\Html\HtmlFacade::class,
+        'Form' => Illuminate\Html\FormFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'App' => Illuminate\Support\Facades\App::class,

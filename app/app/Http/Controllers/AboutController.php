@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Sidebar;
 
@@ -13,6 +14,11 @@ class AboutController extends Controller
     
     public function index(){
         // $sidebar = Sidebar::all();
-        return view('ToDo',compact(["sidebar"]));
+
+        $items = Auth::user()->items;
+
+        return view('ToDo',array(
+            'items' => $items
+        ));
     }
 }

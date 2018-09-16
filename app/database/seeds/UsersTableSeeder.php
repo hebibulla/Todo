@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder{
     public function run (){
-        // DB::Table('users')->delete();
+        DB::Table('users')->delete();
 
 
         $users = array(
