@@ -21,8 +21,8 @@
                    
 
 
-                     {!! Form::open(action('HomeController@postIndex')!!}
-                     {{{ csrf_field() }}}
+                     {!! Form::open(['action' => 'HomeController@postIndex']) !!}
+                     <!-- {{{ csrf_field() }}} -->
                      <div class="col-md-6">
                     
                     @foreach ($data as $item)
@@ -36,7 +36,7 @@
                      
                      @endforeach
                         <input type="text" name="add_name" placeholder="新しいリスト追加記述してください！" class="form-control" autocomplet="off" require > 
-                        <input type="submit" action = "{{{Rout::post('HomeController@postIndex')}}}" value="SAVE" class="btn btn-primary" style="float:right;width:100%; margin:10px auto;">
+                        <input type="submit" value="SAVE" class="btn btn-primary" style="float:right;width:100%; margin:10px auto;">
                         
                         {!! Form::close() !!}
   

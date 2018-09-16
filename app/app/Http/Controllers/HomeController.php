@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Items;
-
+use Input;
 class HomeController extends Controller
 {
     /**
@@ -31,24 +31,19 @@ class HomeController extends Controller
         // データ取得
     $data = $md->getData();
 
-    
-    if(!$data){
-        return view('home');
-       
-    }else{
         // ビューを返す
         
-        return view('home',compact('data'));
+    return view('home',compact('data'));
         // return view('sample.model');
-        }
+        
     }
     public function postIndex(Request $request){
-    
-        // $post->save();
 
+        // $id = Input::get('id');
 
     
-        return view('sample.model');
+        // return view('sample.model');
+        echo "okay";
     }
 
 
