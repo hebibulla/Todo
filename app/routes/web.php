@@ -1,15 +1,14 @@
 <?php
 
-// Route::get('/','AboutController@index')->before('auth');
-// Route::get('/', array('before' => 'auth', 'uses' => 'AboutController@index'));
-
-// Route::get('/login1', 'Auth1Controller@getLogin');
-// Route::post('login1','Auth1Controller@postLogin');
-
-
-
 Auth::routes();
 
+
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/new', 'HomeController@getNew');
+Route::post('/new', 'HomeController@postNew');
+
+Route::get('/delete/{task}', 'HomeController@getDelete');
+// Route::post('/post','HomeController@postIndex');
+
 Route::post('/post','HomeController@postIndex');
 ?>
