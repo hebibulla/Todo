@@ -10,7 +10,7 @@ class Items extends Model
 {
     //データ取得メソッド
     protected $table = 'items';
-    protected $fillable = ['done','item_name'];
+    protected $fillable = ['done','item_name','id'];
     protected $guarded = array('id','owner_id');
     
 

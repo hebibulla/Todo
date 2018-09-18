@@ -32,9 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //ログイン状態のユーザーid取得
-        $id = Auth::id();
-
+     
 
          // Itemモデルのインスタンス化
         $md = new Items();
@@ -44,7 +42,6 @@ class HomeController extends Controller
         // ビューを返す
         
     return view('home',compact('data'));
-        // return view('sample.model');
         
     }
     public function postIndex(Request $request){
@@ -70,7 +67,7 @@ class HomeController extends Controller
         }else{
             $table->update(['done'=>0]);;
             
-            return redirect('/'); 
+            
             
         
             
@@ -80,29 +77,29 @@ class HomeController extends Controller
         
         return redirect('/');  
         
-        
+      }   
         
             
         
         
-    }
+   
 
     public function getNew(){
         return view('new');
     }
+
     public function postNew(Request $request){
 
         $rules = array('item_name' => 'required|min:3|max:225');
-
         //空のとき表示するエラーメッセージ
         $validator = Validator::make($request->all(),$rules);
         if ($validator->fails()) {
             return redirect('new')
                         ->withErrors(array('please input new ToDo!!!'))
-                        ->withInput();
+                        ->withInput();}
                         
 
-        }
+        
         //ログイン状態のユーザーid取得
         $owner_id = Auth::id();
         
@@ -127,4 +124,46 @@ class HomeController extends Controller
         return redirect('/');
         
     }
+
+
+
+
+    public function searchIndex(Request $request){
+
+        $rls = array('search_txt' => 'required');
+        //空のとき表示するエラーメッセージ
+        $validator = Validator::make($request->all(),$rls);
+        if ($validator->fails()) {
+         return redirect('search')
+                     ->withErrors(array('please input search text!'))
+                     ->withInput();
+
+     }
+       $search = $request->input('search_txt');
+         // 検索するテキスト取得
+ 
+
+    //      if(!empty($search)) {
+
+    //     $sdata = $table->where('item_name', 'like', '%'.$search.'%')->get();
+
+    // } 
+
+    // return redirect('search',compact('search'));
+    echo $search;
+
+ }
+
+ public function goSearch(){
+     
+    $md = new Items();
+    // データ取得
+        $data = $md->getData();
+
+    // ビューを返す
+    
+    return view('search',compact('data'));
+     
+ }
 }
+        
