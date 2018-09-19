@@ -7,15 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 use App;
 
 class Input extends Model{
-
+/**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     
     protected $table = 'items';
+    protected $guarded = [];
 
 
 
     public function mark(){
 
-        $this->$done = $this->done ? fales:true;
+         $done = $this->done ? '0' : '1';
+         $this->done = $done;
+         $this->save();
 
         
     }

@@ -44,28 +44,32 @@ class HomeController extends Controller
     return view('home',compact('data'));
         
     }
-    public function postIndex(Request $request){
-         //ログイン状態のユーザーid取得
-        $owner_id = Auth::id();
+    public function postIndex($state){
+        //  //ログイン状態のユーザーid取得
+        // $owner_id = Auth::id();
  
-        //modelのインスタンス
-        $post = new Input();
-        //formから取得したデータを整理
-        $list_id = $request->input('checkBox');
-        
-        
+        // //modelのインスタンス
+        // $post = new Input();
+        // //formから取得したデータを整理
+
+
         $table = DB::table('items');
+        $item = $table->where('id','=',$state)->get();
+        return view('edit',compact('item'));
+        
+        
+        // $table = DB::table('items');
 
         
         
-        if(isset($list_id)){
-            foreach($list_id as $val){
+        // if(isset($list_id)){
+        //     foreach($list_id as $val){
 
-                $table->where('id','=',$val)->update(['done'=>1]);
-            }
+        //         $table->where('id','=',$val)->update(['done'=>1]);
+        //     }
             
-        }else{
-            $table->update(['done'=>0]);;
+        // }else{
+        //     $table->update(['done'=>0]);;
             
             
             
@@ -73,9 +77,11 @@ class HomeController extends Controller
             
             
                 
-        }
+        // }
         
-        return redirect('/');  
+        // return redirect('/');  
+        // $item = Input::findOrfail($list_id);
+        // $item->mark();
         
       }   
         
@@ -186,5 +192,19 @@ class HomeController extends Controller
 
      return view("resultDelete");
  }
+
+ public function uncheckIndex($state){
+
+    $table = DB::table('items');
+    $table->where('id','=',$state)->update(['done' => '0']);
+    return redirect('/');
+ }
+public function checkIndex($state){
+
+    $table = DB::table('items');
+    $table->where('id','=',$state)->update(['done' => '1']);
+    return redirect('/');
+}
+
 }
         

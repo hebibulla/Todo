@@ -6,12 +6,17 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading" style="background-color:#3399FF; font-weight:bolder; color:white;">検索結果</div>
-                <div class="panel-body">
+                <div class="panel-body" style="max-width:100%; text-align:center;" >
                 @foreach ($data as $result)
-                <label>
-                <input type="checkbox" name="checkBox[]" value="{{{ $result->id }}}"   {{{$result ->done ? 'checked' : '' }}} />
-                {{{ $result->item_name }}}<small><a href="{{{ URL('resultdDelete',$result->id)}}}"  style="color:#888888;">delete(削除)</a></small></label><br>
-                
+                <p>
+                    <small><a href="{{{ URL('uncheck',$result->id)}}}"  style="color:black; font-size:12px;font-weight:bolder; margin-right:10px;">
+                                <span>uncheck (未完成チェック)</span></a></small>
+                        <input type="checkbox" name="checkBox[]" disabled="disabled"  {{{$result ->done ? 'checked' : '' }}} />
+                            
+                                <a href="{{{ URL('check',$result->id)}}}"  style="color:#888888;font-size:22px; font-weight:bolder;">{{{ $result->item_name }}}</a>
+                                <input type="hidden" name="checkBox[]" value="">
+                        <small><a href="{{{ URL('resultdDelete',$result->id)}}}"  style="color:red;margin-left:10px;">delete(削除)</a></small><br>
+                    </p>
                 @endforeach
                
           
