@@ -18,6 +18,7 @@
                 {{{Form::close()}}}
                 </div>
             </div>
+            <a  href="{{ URL('/') }}" class="search_page" style="float:right;width:100%;color:white; font-size:20px; font-weight:bolder;  text-align:center; background-color:#3399FF; border-radius:5px;">ホームへ</a>
         </div>
     </div>
 </div>

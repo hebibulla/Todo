@@ -95,7 +95,7 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(),$rules);
         if ($validator->fails()) {
             return redirect('new')
-                        ->withErrors(array('please input new ToDo!!!'))
+                        ->withErrors(array('please input new ToDo text and must be least three letters!','新しいリスト追加してください、三文字以上でなければなりません！'))
                         ->withInput();}
                         
 
@@ -121,7 +121,16 @@ class HomeController extends Controller
         $table = DB::table('items');
         $delete = $table->where('id','=',$task)->delete();
 
-        return redirect('/');
+        return redirect('resultDelete');
+        
+    }
+
+    public function resultDelete($task){
+        
+        $table = DB::table('items');
+        $delete = $table->where('id','=',$task)->delete();
+
+        return redirect('resultDelete');
         
     }
 
@@ -135,35 +144,47 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(),$rls);
         if ($validator->fails()) {
          return redirect('search')
-                     ->withErrors(array('please input search text!'))
+                     ->withErrors(array('please input search text!','検索ワードいれてください！'))
                      ->withInput();
-
-     }
-       $search = $request->input('search_txt');
+        
+       
+        }
+       
          // 検索するテキスト取得
- 
+            $search = $request->input('search_txt');
+             //ログイン状態のユーザーid取得
+            $user_id = Auth::id();
 
-    //      if(!empty($search)) {
+            $table = DB::table('items');
+            $data = $table->where('item_name', 'like', '%'. $search .'%','AND','owner_id','=',$user_id)->get();
 
-    //     $sdata = $table->where('item_name', 'like', '%'.$search.'%')->get();
 
-    // } 
-
-    // return redirect('search',compact('search'));
-    echo $search;
-
+        //  return redirect('result',compact('search'));
+    
+        return view('result',compact('data'));
+    
  }
 
  public function goSearch(){
-     
+
+ 
     $md = new Items();
     // データ取得
-        $data = $md->getData();
+    $data = $md->getData();
 
     // ビューを返す
     
     return view('search',compact('data'));
      
+ }
+
+ public function resultIndex(){
+     return view('result');
+     
+ }
+ public function deleteComplete(){
+
+     return view("resultDelete");
  }
 }
         
