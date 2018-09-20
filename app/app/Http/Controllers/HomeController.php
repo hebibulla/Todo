@@ -162,7 +162,8 @@ class HomeController extends Controller
             $user_id = Auth::id();
 
             $table = DB::table('items');
-            $data = $table->where('item_name', 'like', '%'. $search .'%','AND','owner_id','=',$user_id)->get();
+            $data = $table->where('item_name', 'like', '%'. $search .'%')
+                            ->where('owner_id','=',$user_id)->get();
 
 
         //  return redirect('result',compact('search'));
@@ -194,6 +195,7 @@ class HomeController extends Controller
  }
 
  public function uncheckIndex($state){
+    
 
     $table = DB::table('items');
     $table->where('id','=',$state)->update(['done' => '0']);
@@ -201,7 +203,10 @@ class HomeController extends Controller
  }
 public function checkIndex($state){
 
+    
+
     $table = DB::table('items');
+
     $table->where('id','=',$state)->update(['done' => '1']);
     return redirect('/');
 }
