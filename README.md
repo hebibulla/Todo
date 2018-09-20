@@ -1,5 +1,4 @@
 # Todo
-<div style="background-color:blue;color:white;">
 <h2>開発環境のセットアップ手順</h2>
 <ul>
   <li>使用言語php</>
@@ -11,7 +10,6 @@
  <li> php artisan migrateを実行(テーブル作成)</li>
   <li>VS codeを使って開発を進んでいく</li>
 </ul>
-</div>
 
 <h2>使用した技術、仕様書にない機能</h2>
 <ul>
