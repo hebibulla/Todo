@@ -7,7 +7,6 @@
   <li>composerを使ってlaravel 5.4　フレームワークのインストール</li>
   <li>事前にphpmyadminを開いてtodoという名前でデータベース作る</li>
   <li>laravelプロジェクトプログラムにある.envファイルを開いて接続したいデータベースとユーザー名、パスワード設定を自分の環境に合わせて修正</li>
-  <li>事前にphpmyadminを開いてtodoという名前でデータベース作る</li>
  <li> php artisan migrateを実行(テーブル作成)</li>
   <li>VS codeを使って開発を進んでいく</li>
 </ul>
