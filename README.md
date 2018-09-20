@@ -2,6 +2,7 @@
 
 <h2>開発環境のセットアップ手順</h2>
 <ul>
+  <li>使用言語php</>
 　<li>WampServer32でローカル環境の設定</li>
   <li>composerのインストール</li>
   <li>composerを使ってlaravel 5.4　フレームワークのインストール</li>
