@@ -1,5 +1,5 @@
 # Todo
-<a href="http://app.fromfarplac.store"><p>アプリケーションページ</p><a/>
+<a href="http://app.fromfarplace.store"><p>アプリケーションページ</p><a/>
 <h2>開発環境のセットアップ手順</h2>
 <ul>
   <li>使用言語php</>
